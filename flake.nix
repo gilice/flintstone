@@ -6,9 +6,17 @@
 
   outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs {
-        inherit system;
-      };
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+
+        desktop_item = pkgs.makeDesktopItem {
+          name = "flintstone";
+          desktopName = "FlintStone";
+          exec = "flintstone";
+          mimeTypes = [ "text/markdown" ];
+        };
       in
       {
         defaultPackage = pkgs.rustPlatform.buildRustPackage rec {
@@ -17,11 +25,15 @@
           src = self;
 
           nativeBuildInputs = with pkgs; [
-
             # basic
             rustc
             cargo
+
+            # this hook is needed for desktop items
+            copyDesktopItems
           ];
+
+          desktopItems = [ desktop_item ];
           cargoSha256 = "sha256-FgptQpre1ibSSzIlvOD1dPZdB9f8WPnnAVns+C0A/Hc=";
         };
 
