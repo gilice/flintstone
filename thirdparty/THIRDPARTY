@@ -6,9 +6,10 @@ Boost Software License 1.0 (#BSL-1.0): (1)
 
 All text:
 Apache License 2.0 (#Apache-2.0)
-Used by:
-windows-sys (https://github.com/microsoft/windows-rs, version 0.36.1)
-                                 Apache License
+    Used by:
+        windows-sys (https://github.com/microsoft/windows-rs, version 0.36.1)
+    
+                                     Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -211,9 +212,10 @@ windows-sys (https://github.com/microsoft/windows-rs, version 0.36.1)
    limitations under the License.
 
 Apache License 2.0 (#Apache-2.0)
-Used by:
-json (https://github.com/maciejhirsz/json-rust, version 0.12.4)
-                              Apache License
+    Used by:
+        json (https://github.com/maciejhirsz/json-rust, version 0.12.4)
+    
+                                  Apache License
                         Version 2.0, January 2004
                      http://www.apache.org/licenses/
 
@@ -416,9 +418,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 Apache License 2.0 (#Apache-2.0)
-Used by:
-pathdiff (https://github.com/Manishearth/pathdiff, version 0.2.1)
-                              Apache License
+    Used by:
+        pathdiff (https://github.com/Manishearth/pathdiff, version 0.2.1)
+    
+                                  Apache License
                         Version 2.0, January 2004
                      http://www.apache.org/licenses/
 
@@ -621,13 +624,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 Apache License 2.0 (#Apache-2.0)
-Used by:
-windows_aarch64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
-windows_i686_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
-windows_i686_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
-windows_x86_64_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
-windows_x86_64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
-Apache License
+    Used by:
+        windows_aarch64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+        windows_i686_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
+        windows_i686_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+        windows_x86_64_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
+        windows_x86_64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+    
+    Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
 
@@ -702,9 +706,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 Boost Software License 1.0 (#BSL-1.0)
-Used by:
-flintstone (https://crates.io/crates/flintstone, version 0.1.0)
-Boost Software License - Version 1.0 - August 17th, 2003
+    Used by:
+        flintstone (https://crates.io/crates/flintstone, version 0.1.0)
+    
+    Boost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the software and accompanying documentation covered by this license (the 'Software') to use, reproduce, display, distribute, execute, and transmit the Software, and to prepare derivative works of the Software, and to permit third-parties to whom the Software is furnished to do so, all subject to the following:
 
@@ -713,9 +718,10 @@ The copyright notices in the Software and this entire statement, including the a
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 MIT License (#MIT)
-Used by:
-open (https://github.com/Byron/open-rs, version 3.0.2)
-The MIT License (MIT)
+    Used by:
+        open (https://github.com/Byron/open-rs, version 3.0.2)
+    
+    The MIT License (MIT)
 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
 
 Copyright © &#x60;2015&#x60; &#x60;Sebastian Thiel&#x60;
@@ -742,9 +748,10 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 MIT License (#MIT)
-Used by:
-urlencoding (https://github.com/kornelski/rust_urlencoding, version 2.1.0)
-© 2016 Bertram Truong
+    Used by:
+        urlencoding (https://github.com/kornelski/rust_urlencoding, version 2.1.0)
+    
+    © 2016 Bertram Truong
 © 2021 Kornel Lesiński
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
