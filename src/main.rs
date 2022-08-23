@@ -10,26 +10,42 @@ fn main() {
         exit(1);
     }
 
-    if args.contains(&String::from("-a")) || args.contains(&String::from("--about")) {
-        let tpty = include_str!("../thirdparty/THIRDPARTY");
-        println!("{}", tpty);
-        return;
-    }
-
     let mut files = vec![];
-
-    for i in 1..args.len() {
-        let file_path = Path::new(args.get(i).unwrap())
-            .canonicalize()
-            .expect("Couldn't deref path");
-        files.push(file_path);
+    let mut obs_json_path = String::new();
+    let mut i = 1;
+    while i < args.len() {
+        match args[i].as_str() {
+            "-a" | "--about" => {
+                let tpty = include_str!("../thirdparty/THIRDPARTY");
+                println!("{}", tpty);
+                return;
+            }
+            "-p" | "--path" => {
+                obs_json_path = args[i + 1].clone();
+                dbg!(&obs_json_path);
+                i = i + 2;
+            }
+            _ => {
+                let file_path = Path::new(args.get(i).unwrap())
+                    .canonicalize()
+                    .expect(format!("Couldn't deref path {}", i).as_str());
+                files.push(file_path);
+                i = i + 1;
+            }
+        }
     }
 
-    let config_dir = env::var("XDG_CONFIG_HOME").expect(
-        "Config dir not found at XDG_CONFIG_HOME. Please set a custom path to your obsidian.json with -p/--path",
-    );
+    let config_dir = env::var("XDG_CONFIG_HOME");
 
-    let obs_json_path = format!("{}/obsidian/obsidian.json", config_dir);
+    if obs_json_path.is_empty() {
+        match config_dir {
+            Ok(i) => obs_json_path = format!("{}/obsidian/obsidian.json", i),
+            Err(_) => panic!(
+                "Config dir not found at XDG_CONFIG_HOME. Please set a custom path to your obsidian.json with -p/--path",
+            )
+        }
+    }
+
     let obsidian_json_contents = fs::read_to_string(obs_json_path.as_str())
         .expect(format!("Couldn't read {}", obs_json_path).as_str());
     let obs_json_parsed = json::parse(obsidian_json_contents.as_str())
