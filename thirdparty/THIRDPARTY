@@ -5,9 +5,9 @@ Boost Software License 1.0 (#BSL-1.0): (1)
 
 
 All text:
-Apache License 2.0 (#Apache-2.0)
-    Used by:
-        windows-sys (https://github.com/microsoft/windows-rs, version 0.36.1)
+- Apache License 2.0 (#Apache-2.0)
+    - Used by:
+        - windows-sys (https://github.com/microsoft/windows-rs, version 0.36.1)
     
                                      Apache License
                            Version 2.0, January 2004
@@ -211,9 +211,9 @@ Apache License 2.0 (#Apache-2.0)
    See the License for the specific language governing permissions and
    limitations under the License.
 
-Apache License 2.0 (#Apache-2.0)
-    Used by:
-        json (https://github.com/maciejhirsz/json-rust, version 0.12.4)
+- Apache License 2.0 (#Apache-2.0)
+    - Used by:
+        - json (https://github.com/maciejhirsz/json-rust, version 0.12.4)
     
                                   Apache License
                         Version 2.0, January 2004
@@ -417,9 +417,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Apache License 2.0 (#Apache-2.0)
-    Used by:
-        pathdiff (https://github.com/Manishearth/pathdiff, version 0.2.1)
+- Apache License 2.0 (#Apache-2.0)
+    - Used by:
+        - pathdiff (https://github.com/Manishearth/pathdiff, version 0.2.1)
     
                                   Apache License
                         Version 2.0, January 2004
@@ -623,13 +623,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Apache License 2.0 (#Apache-2.0)
-    Used by:
-        windows_aarch64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
-        windows_i686_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
-        windows_i686_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
-        windows_x86_64_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
-        windows_x86_64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+- Apache License 2.0 (#Apache-2.0)
+    - Used by:
+        - windows_aarch64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+        - windows_i686_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
+        - windows_i686_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
+        - windows_x86_64_gnu (https://github.com/microsoft/windows-rs, version 0.36.1)
+        - windows_x86_64_msvc (https://github.com/microsoft/windows-rs, version 0.36.1)
     
     Apache License
 Version 2.0, January 2004
@@ -705,9 +705,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Boost Software License 1.0 (#BSL-1.0)
-    Used by:
-        flintstone (https://crates.io/crates/flintstone, version 0.1.0)
+- Boost Software License 1.0 (#BSL-1.0)
+    - Used by:
+        - flintstone (https://crates.io/crates/flintstone, version 0.1.0)
     
     Boost Software License - Version 1.0 - August 17th, 2003
 
@@ -717,9 +717,9 @@ The copyright notices in the Software and this entire statement, including the a
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-MIT License (#MIT)
-    Used by:
-        open (https://github.com/Byron/open-rs, version 3.0.2)
+- MIT License (#MIT)
+    - Used by:
+        - open (https://github.com/Byron/open-rs, version 3.0.2)
     
     The MIT License (MIT)
 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
@@ -747,9 +747,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-MIT License (#MIT)
-    Used by:
-        urlencoding (https://github.com/kornelski/rust_urlencoding, version 2.1.0)
+- MIT License (#MIT)
+    - Used by:
+        - urlencoding (https://github.com/kornelski/rust_urlencoding, version 2.1.0)
     
     © 2016 Bertram Truong
 © 2021 Kornel Lesiński
