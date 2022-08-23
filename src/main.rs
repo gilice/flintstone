@@ -11,6 +11,7 @@ fn main() {
         println!("{}", tpty);
         return;
     }
+
     // TODO allow multi file
     let file_path = Path::new(args.get(1).unwrap())
         .canonicalize()
