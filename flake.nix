@@ -22,8 +22,7 @@
             rustc
             cargo
           ];
-
-          cargoSha256 = "sha256-BiHDmXNR/kMnkqQ3NJ+jwC1zFGtbW/vtlgZr54eDeAU=";
+          cargoSha256 = "sha256-FgptQpre1ibSSzIlvOD1dPZdB9f8WPnnAVns+C0A/Hc=";
         };
 
         devShells.default = pkgs.mkShell {

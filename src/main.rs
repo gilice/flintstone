@@ -1,10 +1,18 @@
-use std::{env, fs, path::Path};
+use std::{env, fs, path::Path, process::exit};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-
+    if args.is_empty() {
+        println!("Provide a file name, or pass -a to see info about used libraries");
+        exit(1);
+    }
+    if args.contains(&String::from("a")) {
+        let tpty = include_str!("../thirdparty/THIRDPARTY");
+        println!("{}", tpty);
+        return;
+    }
     // TODO allow multi file
-    let file_path = Path::new(args.get(1).expect("No file path provided"))
+    let file_path = Path::new(args.get(1).unwrap())
         .canonicalize()
         .expect("Couldn't deref path");
     // TODO: allow setting custom obsidian.json path with an arg
