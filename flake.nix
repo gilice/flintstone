@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     crane.url = "github:ipetkov/crane";
     crane.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
@@ -63,8 +63,9 @@
         devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate commonArgs {
           shellHook = ''
             git config core.hooksPath .githooks
-            cargo-about generate $src/about.hbs | sed "s/&quot;/'/g;s/&lt;/</g;s/&gt;/>/g;s/&#x27;/'/g" > thirdparty/THIRDPARTY
+            cargo-about generate about.hbs | sed "s/&quot;/'/g;s/&lt;/</g;s/&gt;/>/g;s/&#x27;/'/g" > thirdparty/THIRDPARTY
           '';
+
           nativeBuildInputs = with pkgs; [
             cargo-about
             convco
