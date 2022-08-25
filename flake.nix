@@ -1,74 +1,76 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    crane.url = "github:ipetkov/crane";
+    crane.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs, crane, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
         };
 
+        craneLib = crane.lib.${system};
         desktop_item = pkgs.makeDesktopItem {
           name = "flintstone";
           desktopName = "FlintStone";
           exec = "flintstone %u";
           mimeTypes = [ "text/markdown" ];
         };
-      in
-      {
-        defaultPackage = pkgs.rustPlatform.buildRustPackage rec {
-          pname = "flintstone";
-          version = "0.1";
-          src = self;
+
+        commonArgs = {
+          src = ./.;
+          buildInputs = with pkgs; [
+            openssl
+          ];
 
           nativeBuildInputs = with pkgs; [
-            # basic
-            rustc
-            cargo
-
-            # this hook is needed for desktop items
+            pkg-config
             copyDesktopItems
           ];
 
+
           desktopItems = [ desktop_item ];
-          cargoSha256 = "sha256-FgptQpre1ibSSzIlvOD1dPZdB9f8WPnnAVns+C0A/Hc=";
         };
 
-        devShells.default = pkgs.mkShell {
+        # Build *just* the cargo dependencies, so we can reuse
+        # all of that work (e.g. via cachix) when running in CI
+        cargoArtifacts = craneLib.buildDepsOnly (pkgs.lib.recursiveUpdate
+          commonArgs
+          {
+            pname = "flintstone";
+          }
+        );
+
+        flintstoneClippy = craneLib.cargoClippy (pkgs.lib.recursiveUpdate commonArgs {
+          inherit cargoArtifacts;
+          cargoClippyExtraArgs = "--all-targets -- --deny warnings";
+        });
+
+        flintstone = craneLib.buildPackage (pkgs.lib.recursiveUpdate
+          commonArgs
+          {
+            inherit cargoArtifacts;
+          }
+        );
+
+      in
+      {
+        packages.default = flintstone;
+        devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate commonArgs {
           shellHook = ''
             git config core.hooksPath .githooks
+            cargo-about generate $src/about.hbs | sed "s/&quot;/'/g;s/&lt;/</g;s/&gt;/>/g;s/&#x27;/'/g" > thirdparty/THIRDPARTY
           '';
-          buildInputs = with pkgs;
-            [
-              # basic
-              rustc
-              cargo
-
-              # for development
-              rustfmt
-
-              # custom
-              cargo-about
-              upx
-
-              # needed for SSL
-              openssl
-              pkg-config
-
-              git
-            ];
+          nativeBuildInputs = with pkgs; [
+            cargo-about
+            convco
+          ];
 
           RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
-        };
-
-
-      }
-    );
+        });
+      });
 }
