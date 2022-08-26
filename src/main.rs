@@ -1,5 +1,5 @@
 use std::{env, fs, path::Path, process::exit};
-
+static XDG_CONFIG_HOME: &str = "XDG_CONFIG_HOME";
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() == 1
@@ -22,34 +22,33 @@ fn main() {
             }
             "-p" | "--path" => {
                 obs_json_path = args[i + 1].clone();
-                dbg!(&obs_json_path);
                 i = i + 2;
             }
             _ => {
                 let file_path = Path::new(args.get(i).unwrap())
                     .canonicalize()
-                    .expect(format!("Couldn't deref path {}", i).as_str());
+                    .unwrap_or_else(|_| panic!("Couldn't deref path {}", stringify!(i)));
                 files.push(file_path);
                 i = i + 1;
             }
         }
     }
 
-    let config_dir = env::var("XDG_CONFIG_HOME");
+    let config_dir = env::var(XDG_CONFIG_HOME);
 
     if obs_json_path.is_empty() {
         match config_dir {
             Ok(i) => obs_json_path = format!("{}/obsidian/obsidian.json", i),
             Err(_) => panic!(
-                "Config dir not found at XDG_CONFIG_HOME. Please set a custom path to your obsidian.json with -p/--path",
+                "Config dir not found at {}. Please set a custom path to your obsidian.json with -p/--path", XDG_CONFIG_HOME,
             )
         }
     }
 
     let obsidian_json_contents = fs::read_to_string(obs_json_path.as_str())
-        .expect(format!("Couldn't read {}", obs_json_path).as_str());
+        .unwrap_or_else(|_| panic!("Couldn't read {}", obs_json_path));
     let obs_json_parsed = json::parse(obsidian_json_contents.as_str())
-        .expect(format!("Couldn't parse {}", obs_json_path).as_str());
+        .unwrap_or_else(|_| panic!("Couldn't parse {}", obs_json_path));
 
     let vaults = obs_json_parsed["vaults"].entries();
 
@@ -68,7 +67,7 @@ fn main() {
                 .to_string();
                 let new_path = format!("obsidian://open?path={}", urlencoded.as_str());
                 open::that(new_path.clone())
-                    .expect(format!("Could not open obsidian link {}", new_path).as_str());
+                    .unwrap_or_else(|_| panic!("Could not open obsidian link {}", new_path));
                 break;
             } else {
                 open::that(file.to_str().expect("Couldn't convert found path to str"))
