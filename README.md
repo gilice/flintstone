@@ -1,4 +1,4 @@
-
+# 🪨
 # flintstone
 [![DeepSource](https://deepsource.io/gh/riceicetea/flintstone.svg/?label=active+issues&token=DS9hMrKlcqbwzjZiaFuAVJJC)](https://deepsource.io/gh/riceicetea/flintstone/)
 
