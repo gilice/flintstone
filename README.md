@@ -1,5 +1,5 @@
-# 🪨
-# flintstone
+# 🪨 flintstone
+
 [![DeepSource](https://deepsource.io/gh/riceicetea/flintstone.svg/?label=active+issues&token=DS9hMrKlcqbwzjZiaFuAVJJC)](https://deepsource.io/gh/riceicetea/flintstone/)
 
 `flintstone` is a simple script I wrote to make setting [Obsidian](https://obsidian.md/) as the default Markdown editor easy. It can run on all operating systems* (but the only reason it's written in Rust is that bash can't parse json without external programs). 
